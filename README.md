@@ -11,8 +11,8 @@
 1. Clone repository:
 
     ```bash
-    git clone https://github.com/username/timedoor-backend-test.git
-    cd timedoor-backend-test
+    git clone https://github.com/ulumdev/timedoor-backend-test-laravel.git
+    cd timedoor-backend-test-laravel
 
     ```
 
@@ -42,7 +42,10 @@
 5. Access this URL or route:
 
     - http://localhost:8000 → List of Books
+      ![Books List Page](docs/screenshots/list-books.png)
 
     - http://localhost:8000/authors/top → Top Authors
+      ![Top Authors Page](docs/screenshots/top-authors.png)
 
     - http://localhost:8000/rating/create → Input Rating
+      ![Top Authors Page](docs/screenshots/insert-rating.png)
