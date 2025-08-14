@@ -30,42 +30,13 @@
                     <div class="row g-4 align-items-center">
                         <div class="col-sm">
                             <div>
-                                <h5 class="card-title mb-0">📚 List of Books</h5>
+                                <h5 class="card-title mb-0">🏆 Top 10 Most Famous Authors</h5>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="card-body border-bottom-dashed border-bottom">
                     @include('components.alerts')
-                    <div class="row g-4 align-items-center">
-                        <div class="col-md-6">
-                            <form action="{{ route('books.index') }}" method="GET" class="position-relative">
-                                <div class="input-group mb-6 flex flex-wrap gap-2 items-center">
-                                    <input type="text" class="form-control search" placeholder="Search for..."
-                                        name="search" value="{{ request()->input('search') }}" id="searchInput">
-                                    <select name="per_page" class="border px-3 py-2 rounded" id="perPageSelect">
-                                        @foreach (range(10, 100, 10) as $num)
-                                            <option value="{{ $num }}" {{ $perPage == $num ? 'selected' : '' }}>
-                                                {{ $num }}</option>
-                                        @endforeach
-                                    </select>
-                                    <button type="submit" class="btn-primary text-white px-3 py-2 rounded shadow">
-                                        Filter
-                                    </button>
-                                    <button type="button" class="btn-danger text-white px-3 py-2 rounded shadow"
-                                        onclick="clearSearch()">
-                                        Reset
-                                    </button>
-                                </div>
-
-                            </form>
-                        </div>
-                        <div class="col-sm-auto
-                                        ms-auto">
-                            <div class="">
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="card-body mx-3">
                     <div>
@@ -74,21 +45,15 @@
                                 <thead class="table-light text-muted">
                                     <tr>
                                         <th class="sort">#</th>
-                                        <th class="sort" data-sort="customer_name">Title</th>
-                                        <th class="sort" data-sort="email">Category Name</th>
                                         <th class="sort" data-sort="email">Author Name</th>
-                                        <th class="sort" data-sort="email">Average Rating</th>
-                                        <th class="sort" data-sort="email">Voters</th>
+                                        <th class="sort" data-sort="email">Total Voter</th>
                                     </tr>
                                 </thead>
                                 <tbody class="list form-check-all">
-                                    @foreach ($books as $data)
+                                    @foreach ($authors as $data)
                                         <tr>
                                             <td class="number">{{ $loop->iteration ?? '-' }}</td>
-                                            <td class="px-4 py-2 border">{{ $data->title }}</td>
-                                            <td class="px-4 py-2 border">{{ $data->category_name }}</td>
-                                            <td class="px-4 py-2 border">{{ $data->author_name }}</td>
-                                            <td class="px-4 py-2 border">{{ number_format($data->avg_rating, 2) }}</td>
+                                            <td class="px-4 py-2 border">{{ $data->name }}</td>
                                             <td class="px-4 py-2 border">{{ $data->total_voter }}</td>
                                         </tr>
                                     @endforeach
@@ -107,12 +72,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="">
-                            {{ $books->links() }}
-                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
         <!--end col-->
     </div>
@@ -121,12 +84,4 @@
 
 @push('scripts')
     <script src="{{ URL::asset('/assets/js/app.min.js') }}"></script>
-
-    <script>
-        function clearSearch() {
-            document.getElementById('searchInput').value = '';
-            document.getElementById('perPageSelect').value = '10'; // Reset to default per page
-            document.querySelector('form[action="{{ route('books.index') }}"]').submit();
-        }
-    </script>
 @endpush

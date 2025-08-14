@@ -60,55 +60,23 @@
                 </li> <!-- end Dashboard Menu --> --}}
 
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}"
-                        href="{{ route('dashboard') }}">
-                        <i class="ri-apps-2-line"></i> <span data-key="t-landing">Dashboard</span>
+                    <a class="nav-link {{ request()->routeIs('books.*') ? 'active' : '' }}"
+                        href="{{ route('books.index') }}">
+                        <i class="ri-apps-2-line"></i> <span data-key="t-landing">List Books</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('personal.*') ? 'active' : '' }}" href="">
-                        <i class="ri-user-star-line"></i> <span data-key="t-landing">Personal Profile</span>
+                    <a class="nav-link {{ request()->routeIs('authors.*') ? 'active' : '' }}"
+                        href="{{ route('authors.top') }}">
+                        <i class="ri-user-star-line"></i> <span data-key="t-landing">Top Authors</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('education.*') ? 'active' : '' }}"
-                        href="{{ route('education.index') }}">
-                        <i class="ri-vip-crown-2-line"></i> <span data-key="t-landing">Education</span>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('experience.*') ? 'active' : '' }}" href="">
-                        <i class="ri-award-line"></i> <span data-key="t-landing">Experience</span>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('project.*') ? 'active' : '' }}" href="">
-                        <i class="ri-draft-line"></i> <span data-key="t-landing">Project</span>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('skill.*') ? 'active' : '' }}" href="">
-                        <i class="ri-shield-star-line"></i> <span data-key="t-landing">Skill</span>
-                    </a>
-                </li>
-
-                <li class="menu-title"><span>example</span></li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('example') ? 'active' : '' }}"
-                        href="{{ route('example') }}">
-                        <i class="ri-pages-line"></i> <span data-key="t-landing">Example Page</span>
-                    </a>
-                </li>
-
-                <li class="menu-title"><span>portofolio</span></li>
-                <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="landing">
-                        <i class="ri-honour-line"></i> <span data-key="t-landing">Check Portofolio</span>
+                    <a class="nav-link {{ request()->routeIs('ratings.*') ? 'active' : '' }}"
+                        href="{{ route('ratings.create') }}">
+                        <i class="ri-draft-line"></i> <span data-key="t-landing">Insert Rating</span>
                     </a>
                 </li>
 
