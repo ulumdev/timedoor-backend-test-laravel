@@ -17,7 +17,10 @@
     ```
 
 2. Install dependencies:
-   composer install
+
+    ```
+    composer install
+    ```
 
 3. Copy .env.example to .env and set your database configuration.
    Edit this code in file .env

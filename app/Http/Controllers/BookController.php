@@ -11,7 +11,7 @@ class BookController extends Controller
     //
     public function index(Request $request)
     {
-        $perPage = $request->get('per_page', 10);
+        $perPage = $request->get('per_page', 100);
         $search = $request->get('search');
 
         $books = Book::select(
@@ -32,7 +32,8 @@ class BookController extends Controller
             })
             ->groupBy('books.id', 'books.title', 'authors.name', 'categories.name')
             ->orderByDesc('avg_rating')
-            ->paginate($perPage);
+            ->paginate($perPage)
+            ->withQueryString();
 
         return view('pages.books.index', [
             'books' => $books,

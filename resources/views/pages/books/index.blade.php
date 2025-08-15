@@ -44,7 +44,7 @@
                                     <input type="text" class="form-control search" placeholder="Search for..."
                                         name="search" value="{{ request()->input('search') }}" id="searchInput">
                                     <select name="per_page" class="border px-3 py-2 rounded" id="perPageSelect">
-                                        @foreach (range(10, 100, 10) as $num)
+                                        @foreach (range(100, 1000, 100) as $num)
                                             <option value="{{ $num }}" {{ $perPage == $num ? 'selected' : '' }}>
                                                 {{ $num }}</option>
                                         @endforeach
@@ -108,7 +108,7 @@
                             </div>
                         </div>
                         <div class="">
-                            {{ $books->links() }}
+                            {{ $books->appends(request()->query())->links() }}
                         </div>
                     </div>
                 </div>
